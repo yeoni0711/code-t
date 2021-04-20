@@ -1,0 +1,14 @@
+n = int(input())
+
+
+count = 0
+
+for t in range(n + 1):
+    for m in range(60):
+        for s in range(60):
+            if '3' in str(t) + str(m) + str(s):
+                count += 1
+
+print(count)
+
+###입력된 n시 59분 59초까지 3이 들어가는 경우의 수 카운트###
