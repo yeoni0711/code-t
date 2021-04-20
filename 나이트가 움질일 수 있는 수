@@ -1,0 +1,14 @@
+####8*8체스판에 처음 나이트의 위치가 주어졌을 때 이동 가능한 수 구하기
+
+n = int(input())
+
+
+count = 0
+
+for t in range(n + 1):
+    for m in range(60):
+        for s in range(60):
+            if '3' in str(t) + str(m) + str(s):
+                count += 1
+
+print(count)
