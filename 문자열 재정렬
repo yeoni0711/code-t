@@ -1,0 +1,21 @@
+############# 문자열 s input() 후 알파벳은 순서대로, 숫자는 숫자들의 합을 출력하시오
+
+data = input()
+
+intsum = 0
+letter = []
+
+for d in data:
+    if d.isalpha():
+        letter.append(d)
+                
+    else:
+        intsum += int(d)
+
+letter.sort()
+
+if intsum != 0:
+    letter.append(str(intsum))
+
+##공백없이 출력
+print(''.join(letter))
