@@ -1,0 +1,20 @@
+n = int(input())
+route = input().split()
+x,y = 1,1
+
+moves = ['l','r','u','d']
+xmoves = [0, 0, -1, 1]
+ymoves = [-1, 1, 0, 0]
+
+for r in route:
+    for m in range(len(moves)):
+        if r == moves[m]:
+
+            nx = x + xmoves[m]
+            ny = y + ymoves[m]
+
+    if nx < 1 or ny < 1 or nx > n or ny > n:
+        continue
+    x, y = nx, ny
+    
+print(x, y)
