@@ -1,0 +1,151 @@
+num = int(input())
+horror = list(map(int, input().split()))
+
+horror.sort()
+
+
+count = 0
+result = 0
+
+for n in horror:
+    count += 1
+    if count >= n:
+        result += 1
+        count = 0
+
+print(result)
+
+
+#########################스택자료구조
+box = []
+
+box.append(5)
+box.append(2)
+box.append(3)
+box.append(7)
+box.pop()
+box.append(1)
+box.append(4)
+box.pop()
+
+
+print(box[::-1])
+
+
+#########################큐자료구현
+from collections import deque
+
+queue = deque()
+
+queue.append(5)
+queue.append(2)
+queue.append(3)
+queue.append(7)
+queue.popleft()
+queue.append(1)
+queue.append(4)
+queue.popleft()
+
+queue.reverse()
+print(queue)
+
+
+
+
+
+
+
+##########################재귀함수
+
+def rf(x):
+    if x == 100:
+        return
+#재귀함수 종료조건 재시
+
+    print('a')
+    rf(x+1)
+
+
+
+#재귀함수로 팩토리얼 구현
+
+def factorial(n):
+    if n <= 1:
+        return 1
+    return n * factorial(n-1)
+
+
+#최대공약수
+
+def gdc(a,b):
+    if a % b == 0:
+        return b
+    else:
+        return gdc(b, a%b)
+        
+        
+####################DFS
+
+#그래프 (노드연결정보를 2차원 리스트로 표현)
+
+graph = [
+    [],
+    [2, 3, 8],
+    [1,7],
+    [1, 4, 5],
+    [3, 5],
+    [3, 4],
+    [7],
+    [2, 6, 8],
+    [1, 7]
+]
+
+#각 노드가 방문된 정보 표현
+visited = [False] * 9
+
+
+def dfs(graph, v, visited):
+    visited[v] = True
+    print(v, end=' ')
+    for i in graph[v]:
+        if not visited[i]:
+            dfs(graph, i, visited)
+
+
+#DFS 함수 호출
+dfs(graph, 1, visited)
+
+
+
+########################BFS
+
+from collections import deque
+
+def dfs(graph, start, visited):
+    queue = deque([start])
+    visited[start] = True
+    while queue:
+        v = queue.popleft()
+        print(v, end = ' ')
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+
+graph = [
+    [],
+    [2, 3, 8],
+    [1,7],
+    [1, 4, 5],
+    [3, 5],
+    [3, 4],
+    [7],
+    [2, 6, 8],
+    [1, 7]
+]
+
+visited = [False] * 9
+
+
+
+print(dfs(graph, 1, visited))
