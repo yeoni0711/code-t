@@ -1,0 +1,33 @@
+#############선택정렬: 처리되지 않은 데이터들 중 가장 작은 수를 골라 맨 앞에 데이터와 자리를 바꾸는 것
+
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+
+for i in range(len(array)):
+    min = i
+    for j in range(i+1, len(array)):
+        if array[min] > array[j]:
+            min = j
+        array[i], array[min] = array[min], array[i]
+        
+print(array)
+
+
+
+#################삽입정렬:처리되지 않은 데이터를 하나씩 골라 적절한 위치에 삽입
+
+
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+
+for i in range(len(array)):
+    for j in range(i,0,-1):
+        if array[j] < array[j-1]:
+            array[j], array[j-1] = array[j-1], array[j]
+        else:
+            break
+
+print(array)
+
+
+##########################퀵 정렬: 기준 데이터를 설정, 그 기준보다 큰 데이터와 작은 데이터의 위치를 바꿈 가장 기본적인 퀵정렬은 첫 데이터를 기준 데이터(pivot)로 설정
