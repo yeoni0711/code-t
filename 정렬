@@ -31,3 +31,60 @@ print(array)
 
 
 ##########################퀵 정렬: 기준 데이터를 설정, 그 기준보다 큰 데이터와 작은 데이터의 위치를 바꿈 가장 기본적인 퀵정렬은 첫 데이터를 기준 데이터(pivot)로 설정
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+
+def quick(array, start, end):
+    if start>=end:
+        return
+    left = start + 1
+    right = end
+    pivot = start
+    while (left <= right):
+        while(left <=end and array[left]<=array[pivot]):
+            left += 1
+        while(start < right and array[right]>=array[pivot]):
+            right -= 1
+        if (left > right):
+            array[right], array[pivot] = array[pivot], array[right]
+        else:
+            array[right], array[left] = array[left], array[right]
+    quick(array, start, right-1)
+    quick (array, right + 1, end)
+
+quick(array, 0, len(array) - 1)
+print(array)
+
+
+
+
+
+
+
+#################################계수정렬: 특정한 조건이 부합할 때만 사용하지만 매우 빠름. 데이터 크기 범위가 제한되어 정수 형태로 표현할 수 있을 때 사용 가능 
+
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2]
+
+count = [0] * (max(array) +1)
+print(count)
+
+for i in range(len(array)):
+    count[array[i]] += 1
+
+print (count)
+for i in range (len(count)):
+    for j in range(count[i]):
+        print(i, end = ' ')
+
+
+
+
+
+
+
+
+
+
+
+
